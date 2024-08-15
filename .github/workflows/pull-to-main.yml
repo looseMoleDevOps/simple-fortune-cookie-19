@@ -16,7 +16,7 @@ jobs:
       - name: Create kubeconfig
         run: echo "${{ secrets.KUBECONFIG_TEST }}" | base64 -d > kubeconfig
       - name: Setup staginng manifests
-        run: bash ci/setup-stagning.sh
+        run: bash ci/setup-staging.sh
       - name: Apply K8s manifests
         run: kubectl --kubeconfig kubeconfig apply -f ./k8s-manifests/test/
       - name: Wait a little, for k8s
