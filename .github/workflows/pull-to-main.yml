@@ -4,7 +4,7 @@ on:
     branches:
       [main]
 env:
-  docker_username: loosemole
+  docker_username: loosemoledevops
   docker_password: ${{ secrets.GITHUB_TOKEN }}
   GIT_COMMIT: ${{ github.sha }}
 jobs:
