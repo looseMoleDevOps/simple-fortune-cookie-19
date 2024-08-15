@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the Ingress YAML file
-INGRESS_YAML="../k8s-manifests/frontend/frontend-ingress.yml"
+INGRESS_YAML="./k8s-manifests/frontend/frontend-ingress.yml"
 
 # Extract the host value from the Ingress YAML file using yq or sed
 extract_host() {
