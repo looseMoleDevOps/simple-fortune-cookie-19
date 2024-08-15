@@ -22,5 +22,7 @@ jobs:
   curl-test:
     runs-on: ubuntu-latest
     steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
       - name: Test uptime
         run: bash ci/test_connection.sh
