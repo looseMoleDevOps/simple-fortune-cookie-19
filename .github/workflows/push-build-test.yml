@@ -23,6 +23,6 @@ jobs:
     - name: Build backend
       run: go build -C ./backend/ -v
     - name: Test frontend
-      run: go test -C ./frontend/ -v
+      run: go test -C ./frontend/
     - name: Test backend
-      run: go test -C ./backend/ -v
+      run: go test -C ./backend/
