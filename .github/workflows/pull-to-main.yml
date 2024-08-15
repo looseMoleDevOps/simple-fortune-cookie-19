@@ -7,6 +7,7 @@ env:
   docker_username: loosemoledevops
   docker_password: ${{ secrets.GITHUB_TOKEN }}
   GIT_COMMIT: ${{ github.sha }}
+  KUBECONFIG_TEST: ${{ secrets.KUBECONFIG_TEST }}
 jobs:
   staging-tests:
     runs-on: ubuntu-latest
@@ -14,7 +15,7 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v4
       - name: Create kubeconfig
-        run: echo "${{ secrets.KUBECONFIG_TEST }}" | base64 -d > kubeconfig
+        run: echo "$KUBECONFIG_TEST" | base64 -d > kubeconfig
       - name: Setup staginng manifests
         run: bash ci/setup-staging.sh
       - name: Apply K8s manifests
