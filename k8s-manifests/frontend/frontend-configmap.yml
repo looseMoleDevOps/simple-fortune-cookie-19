@@ -4,4 +4,4 @@ metadata:
   name: frontend-config
 data:
   BACKEND_PORT: "9000"
-  BACKEND_DNS: localhost
+  BACKEND_DNS: go-backend
