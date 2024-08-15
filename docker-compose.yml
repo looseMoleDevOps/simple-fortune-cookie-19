@@ -5,6 +5,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    image: backendgo:latest
     container_name: my-backend
     restart: unless-stopped
     #environment:
