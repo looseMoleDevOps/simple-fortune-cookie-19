@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     run: backend
-  name: backend
+  name: backend-svc
 spec:
   ports:
     - port: 9000
