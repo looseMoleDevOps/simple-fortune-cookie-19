@@ -19,3 +19,8 @@ jobs:
         run: bash ci/docker-build.sh
       - name: Push images
         run: bash ci/docker-push.sh
+  curl-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test uptime
+        run: bash ci/test_connection.sh
