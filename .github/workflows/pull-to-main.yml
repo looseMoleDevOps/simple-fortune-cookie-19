@@ -1,0 +1,15 @@
+name: Build and Upload container
+on:
+  pull_request:
+    branches:
+      [main]
+jobs:
+  publish-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+      - name: Build images
+        run: ci/docker-build.sh
+      - name: Push images
+        run: ci/docker-push.sh
