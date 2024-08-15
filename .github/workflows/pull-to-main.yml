@@ -3,6 +3,10 @@ on:
   pull_request:
     branches:
       [main]
+env:
+  docker_username: loosemole
+  docker_password: ${{ secrets.GITHUB_TOKEN }}
+  GIT_COMMIT: ${{ github.sha }}
 jobs:
   publish-image:
     runs-on: ubuntu-latest
