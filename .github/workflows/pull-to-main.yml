@@ -19,6 +19,13 @@ jobs:
         run: bash ci/docker-build.sh
       - name: Push images
         run: bash ci/docker-push.sh
+  curl-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+      - name: Test uptime
+        run: bash ci/test_connection.sh
   deploy-k8s:
     runs-on: ubuntu-latest
     steps:
@@ -30,3 +37,4 @@ jobs:
         run: kubectl --kubeconfig kubeconfig apply -f ./k8s-manifests/backend/
       - run: kubectl --kubeconfig kubeconfig apply -f ./k8s-manifests/frontend/
       - run: kubectl --kubeconfig kubeconfig apply -f ./k8s-manifests/redis/
+
