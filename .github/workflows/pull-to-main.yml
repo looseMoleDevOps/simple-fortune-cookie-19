@@ -14,6 +14,6 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v4
       - name: Build images
-        run: ci/docker-build.sh
+        run: bash ci/docker-build.sh
       - name: Push images
-        run: ci/docker-push.sh
+        run: bash ci/docker-push.sh
