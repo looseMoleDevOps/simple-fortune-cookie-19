@@ -19,10 +19,10 @@ jobs:
         go-version: '1.20'
 
     - name: Build frontend
-      run: go build -v ./frontend
+      run: go build -v ./frontend/
     - name: Build backend
-      run: go build -v ./backend
+      run: go build -v ./backend/
     - name: Test frontend
-      run: go test -v ./frontend
+      run: go test -v ./frontend/
     - name: Test backend
-      run: go test -v ./backend
+      run: go test -v ./backend/
