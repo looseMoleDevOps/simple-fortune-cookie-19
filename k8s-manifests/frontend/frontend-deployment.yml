@@ -15,7 +15,7 @@ spec:
         run: frontend
     spec:
       containers:
-        - image: null
+        - image: ghcr.io/loosemoledevops/frontend:latest
           name: go-frontend
           ports:
             - containerPort: 8080

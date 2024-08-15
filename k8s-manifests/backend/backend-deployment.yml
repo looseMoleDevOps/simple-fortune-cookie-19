@@ -15,7 +15,7 @@ spec:
         run: backend
     spec:
       containers:
-        - image: null
+        - image: ghcr.io/loosemoledevops/backend:latest
           name: go-backend
           ports:
             - containerPort: 9000
