@@ -32,7 +32,7 @@ test_application() {
 if [ -n "$KUBECONFIG_TEST" ]; then
     # If XX is set, use it as the kubeconfig
     echo "Using KUBECONFIG_TEST as config."
-    KUBECONFIG_REF="$KUBECONFIG_TEST"
+    KUBECONFIG_REF=kubeconfig
 else
     # Otherwise, use the standard kubeconfig path
     echo "Using local k8s config."
