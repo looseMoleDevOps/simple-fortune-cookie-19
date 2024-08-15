@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: backend
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: backend
+  template:
+    metadata:
+      labels:
+        run: backend
+    spec:
+      containers:
+        - image: ghcr.io/loosemoledevops/backend:latest
+          name: go-backend
+          ports:
+            - containerPort: 9000
+          envFrom:
+            - configMapRef:
+                name: backend-config
