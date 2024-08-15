@@ -10,6 +10,8 @@ env:
 jobs:
   publish-image:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - name: Clone repo
         uses: actions/checkout@v4
