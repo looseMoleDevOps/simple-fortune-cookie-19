@@ -17,6 +17,8 @@ spec:
       containers:
         - image: null
           name: go-backend
+          ports:
+            - containerPort: 9000
           envFrom:
             - configMapRef:
                 name: backend-config

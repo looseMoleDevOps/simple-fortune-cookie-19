@@ -17,6 +17,8 @@ spec:
       containers:
         - image: null
           name: go-frontend
+          ports:
+            - containerPort: 8080
           envFrom:
             - configMapRef:
                 name: frontend-config
