@@ -1,3 +1,10 @@
+DIR=./k8s-manifests/test/
+if [ ! -d "$FILE" ]; then
+    echo "There is no redis folder."
+    cp -r ./k8s-manifests/redis/* ./k8s-manifests/test/
+fi
+
+
 cp -r ./k8s-manifests/backend/* ./k8s-manifests/test/
 cp -r ./k8s-manifests/frontend/* ./k8s-manifests/test/
 
