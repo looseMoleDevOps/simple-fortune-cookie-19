@@ -8,6 +8,21 @@ env:
   docker_password: ${{ secrets.GITHUB_TOKEN }}
   GIT_COMMIT: ${{ github.sha }}
 jobs:
+  staging-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+      - name: Create kubeconfig
+        run: echo "${{ secrets.KUBECONFIG_TEST }}" | base64 -d > kubeconfig
+      - name: Setup staginng manifests
+        run: bash ci/setup-stagning.sh
+      - name: Apply K8s manifests
+        run: kubectl --kubeconfig kubeconfig apply -f ./k8s-manifests/test/
+      - name: Wait a little, for k8s
+        run: sleep 15
+      - name: Test up-status of Staging
+        run: bash ci/test_test_connection.sh
   publish-image:
     runs-on: ubuntu-latest
     permissions:
