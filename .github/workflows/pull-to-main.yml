@@ -19,3 +19,14 @@ jobs:
         run: bash ci/docker-build.sh
       - name: Push images
         run: bash ci/docker-push.sh
+  deploy-k8s:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+      - name: Create kubeconfig
+        run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
+      - name: Apply K8s manifests
+        run: kubectl --kubeconfig kubeconfig apply -f ./k8s-manifests/backend/
+      - run: kubectl --kubeconfig kubeconfig apply -f ./k8s-manifests/frontend/
+      - run: kubectl --kubeconfig kubeconfig apply -f ./k8s-manifests/redis/
