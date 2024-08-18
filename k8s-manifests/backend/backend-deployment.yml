@@ -6,6 +6,11 @@ metadata:
   name: backend
 spec:
   replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 100%
+      maxUnavailable: 0%
+    type: RollingUpdate
   selector:
     matchLabels:
       run: backend
