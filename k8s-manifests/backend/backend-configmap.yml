@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: backend-config
 data:
-  REDIS_DNS: null
+  REDIS_DNS: "redis-svc"
