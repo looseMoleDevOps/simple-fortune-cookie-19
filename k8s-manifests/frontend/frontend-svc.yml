@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     run: frontend
-  name: frontend
+  name: frontend-svc
 spec:
   ports:
     - port: 8080
