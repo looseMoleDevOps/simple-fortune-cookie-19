@@ -1,0 +1,28 @@
+version: '1.0'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: backendgo:latest
+    container_name: my-backend
+    restart: unless-stopped
+    #environment:
+    #  - REDIS_DNS
+    
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: frontendgo:latest
+    container_name: my-frontend
+    restart: unless-stopped
+    environment:
+      - BACKEND_PORT=9000
+      - BACKEND_DNS=backend
+    ports:
+      - 8080:8080
+    depends_on:
+      - backend

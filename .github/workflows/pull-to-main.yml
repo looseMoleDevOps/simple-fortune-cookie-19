@@ -1,0 +1,28 @@
+name: Build and Upload container
+on:
+  pull_request:
+    branches:
+      [main]
+env:
+  docker_username: loosemoledevops
+  docker_password: ${{ secrets.GITHUB_TOKEN }}
+  GIT_COMMIT: ${{ github.sha }}
+jobs:
+  publish-image:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+      - name: Build images
+        run: bash ci/docker-build.sh
+      - name: Push images
+        run: bash ci/docker-push.sh
+  curl-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+      - name: Test uptime
+        run: bash ci/test_connection.sh
